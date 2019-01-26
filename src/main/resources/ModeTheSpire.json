@@ -3,7 +3,7 @@
   "name": "The Ancient",
   "author_list": ["notalizard"],
   "description": "",
-  "version": "0.1",
+  "version": "0.1.0",
   "sts_version": "",
   "mts_version": "2.6.0",
   "dependencies": ["basemod", "stslib"],
