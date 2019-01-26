@@ -1,12 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>examplemod</groupId>
-    <artifactId>examplemod</artifactId>
+    <groupId>ancientmod</groupId>
+    <artifactId>ancientmod</artifactId>
     <version>v1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>ExampleMod</name>
+    <name>AncientMod</name>
     <description>Attempting to make a mod!</description>
 
     <dependencies>
