@@ -22,8 +22,7 @@ import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import ancient.patches.AncientEnum;
-import ancient.cards.Strike_Ancient;
-import ancient.cards.Defend_Ancient;
+import ancient.cards.*;
 import com.megacrit.cardcrawl.relics.BurningBlood;
 
 import java.util.ArrayList;
@@ -90,7 +89,9 @@ public class AncientCharacter extends CustomPlayer {
         retVal.add(Defend_Ancient.ID);
         retVal.add(Defend_Ancient.ID);
         retVal.add(Defend_Ancient.ID);
+
         retVal.add(TailWhip.ID);
+        retVal.add(WingAttack.ID);
         //
         return retVal;
     }

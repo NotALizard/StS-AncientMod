@@ -1,10 +1,10 @@
 {
-"theDefault:CommonPower": {
-        "NAME": "Placeholder Power",
-        "DESCRIPTIONS": ["You applied ", " keyword.", " keywords."]
+"Ancient:EmberPower": {
+        "NAME": "Ember Affinity",
+        "DESCRIPTIONS": ["For ", " turn", " turns", " damage inflicts 1 Singe on enemies."]
 },
-"theDefault:RarePower": {
-        "NAME": "Placeholder Power",
-        "DESCRIPTIONS": ["At the start of your turn, TOUCH ", " enemy." , " enemies."]
+"Ancient:SingePower": {
+        "NAME": "Singe",
+        "DESCRIPTIONS": ["Upon receiving damage, take ", " additional damage."]
 }
 }

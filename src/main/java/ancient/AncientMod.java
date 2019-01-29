@@ -22,6 +22,7 @@ import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.OrbStrings;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
 import java.nio.charset.StandardCharsets;
 import java.util.jar.Attributes;
@@ -102,8 +103,18 @@ public class AncientMod implements EditCharactersSubscriber, EditStringsSubscrib
 
     @Override
     public void receiveEditCards(){
-        BaseMod.addCard(new ancient.cards.Defend_Ancient());
-        BaseMod.addCard(new ancient.cards.Strike_Ancient());
+        BaseMod.addCard(new Defend_Ancient());
+        BaseMod.addCard(new Strike_Ancient());
         BaseMod.addCard(new TailWhip());
+        BaseMod.addCard(new Teeth());
+        BaseMod.addCard(new WingAttack());
+        BaseMod.addCard(new Ignition());
+
+        UnlockTracker.unlockCard(Defend_Ancient.ID);
+        UnlockTracker.unlockCard(Strike_Ancient.ID);
+        UnlockTracker.unlockCard(TailWhip.ID);
+        UnlockTracker.unlockCard(Teeth.ID);
+        UnlockTracker.unlockCard(WingAttack.ID);
+        UnlockTracker.unlockCard(Ignition.ID);
     }
 }

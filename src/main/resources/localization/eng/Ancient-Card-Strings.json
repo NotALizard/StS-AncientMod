@@ -16,14 +16,13 @@
     "NAME": "Ignition",
     "DESCRIPTION": "Gain !M! Fire Affinity."
   },
-  "theDefault:DefaultUncommonSkill": {
-    "NAME": "A Better Defend",
-    "DESCRIPTION": "Gain !B! Plated Armor. Affected by Dexterity."
+  "Ancient:WingAttack": {
+    "NAME": "Wing Attack",
+    "DESCRIPTION": "Deal !D! Damage to all enemies and Gain !M! Dexterity."
   },
-  "theDefault:DefaultUncommonPower": {
-    "NAME": "Weirdness",
-    "DESCRIPTION": "Gain X Keywords.",
-    "UPGRADE_DESCRIPTION": "Gain X +1 Keywords."
+  "Ancient:Teeth": {
+    "NAME": "Teeth",
+    "DESCRIPTION": "Deal !D! Damage !M! times. Can be upgraded any number of times."
   },
   "theDefault:DefaultRareAttack": {
     "NAME": "TOUCH",
