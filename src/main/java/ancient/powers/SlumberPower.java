@@ -1,5 +1,6 @@
 package ancient.powers;
 
+import ancient.AncientMod;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -10,20 +11,21 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class EmberPower extends AbstractPower {
-    public static final String POWER_ID = "Ancient:EmberPower";
+public class SlumberPower extends AbstractPower {
+    public static final String POWER_ID = "Ancient:SlumberPower";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     private static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     public static final String IMG = "AncientImages/powers/placeholder_power.png";
 
-    public EmberPower(AbstractCreature owner, int newAmount){
+    public SlumberPower(AbstractCreature owner, int newAmount){
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
         this.amount = newAmount;
+        this.priority = 0;
         updateDescription();
-        type = PowerType.DEBUFF;
+        type = PowerType.BUFF;
         isTurnBased = true;
         img = ImageMaster.loadImage(IMG);
     }
@@ -33,12 +35,6 @@ public class EmberPower extends AbstractPower {
         description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
     }
 
-    public float atDamageReceive(float damage, DamageInfo.DamageType type){
-        if(type == DamageInfo.DamageType.NORMAL){
-            return damage + this.amount;
-        }
-        return damage;
-    }
 
     public void stackPower(int stackAmount)
     {
@@ -47,6 +43,11 @@ public class EmberPower extends AbstractPower {
 
     public void atStartOfTurn()
     {
-        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
+        flash();
+        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(owner, owner, new FireAffinityPower(owner, amount), amount));
+        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(owner, owner, new IceAffinityPower(owner, amount), amount));
+        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(owner, owner, new VenomAffinityPower(owner, amount), amount));
+
+        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner,this.owner,POWER_ID));
     }
 }

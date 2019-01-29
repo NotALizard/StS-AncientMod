@@ -24,13 +24,12 @@ public class WingAttack extends AbstractAncientCard {
     public static final String ID = "Ancient:WingAttack";
     public static final String NAME;
     public static final String DESCRIPTION;
-    public static String UPGRADED_DESCRIPTION;
     public static final String IMG_PATH = "cards/attackAncient.png";
     private static final CardStrings cardStrings;
 
-    private static final AbstractCard.CardType TYPE = AbstractCard.CardType.ATTACK;
-    private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.RARE;
-    private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.ALL_ENEMY;
+    private static final CardType TYPE = CardType.ATTACK;
+    private static final CardRarity RARITY = CardRarity.RARE;
+    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
 
     private static final int COST = 1;
     private static final int ATTACK_DMG = 9;
@@ -63,7 +62,6 @@ public class WingAttack extends AbstractAncientCard {
     public void upgrade() {
         upgradeName();
         upgradeDamage(UPGRADE_AMT);
-        this.rawDescription = UPGRADED_DESCRIPTION;
         initializeDescription();
     }
 
@@ -71,6 +69,5 @@ public class WingAttack extends AbstractAncientCard {
         cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
         NAME = cardStrings.NAME;
         DESCRIPTION = cardStrings.DESCRIPTION;
-        UPGRADED_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     }
 }

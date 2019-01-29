@@ -9,21 +9,22 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 
-public class EmberPower extends AbstractPower {
-    public static final String POWER_ID = "Ancient:EmberPower";
+public class ToxinPower extends AbstractPower {
+    public static final String POWER_ID = "Ancient:ToxinPower";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     private static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     public static final String IMG = "AncientImages/powers/placeholder_power.png";
 
-    public EmberPower(AbstractCreature owner, int newAmount){
+    public ToxinPower(AbstractCreature owner, int newAmount){
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
         this.amount = newAmount;
         updateDescription();
-        type = PowerType.DEBUFF;
+        type = PowerType.BUFF;
         isTurnBased = true;
         img = ImageMaster.loadImage(IMG);
     }
@@ -33,20 +34,15 @@ public class EmberPower extends AbstractPower {
         description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
     }
 
-    public float atDamageReceive(float damage, DamageInfo.DamageType type){
-        if(type == DamageInfo.DamageType.NORMAL){
-            return damage + this.amount;
-        }
-        return damage;
-    }
-
     public void stackPower(int stackAmount)
     {
         super.stackPower(stackAmount);
     }
 
-    public void atStartOfTurn()
+    public void atEndOfTurn(boolean isPlayer)
     {
+        flash();
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new StrengthPower(this.owner, this.amount), this.amount));
         AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
     }
 }

@@ -4,31 +4,35 @@ import ancient.cards.*;
 import ancient.characters.AncientCharacter;
 import ancient.patches.AbstractCardEnum;
 import ancient.patches.AncientEnum;
+import ancient.powers.FireAffinityPower;
+import ancient.powers.IceAffinityPower;
+import ancient.powers.VenomAffinityPower;
+import ancient.relics.AshenScales;
 import basemod.BaseMod;
-import basemod.helpers.BaseModCardTags;
 import basemod.interfaces.EditCardsSubscriber;
 import basemod.interfaces.EditCharactersSubscriber;
+import basemod.interfaces.EditRelicsSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.PotionStrings;
-import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.OrbStrings;
-import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
 import java.nio.charset.StandardCharsets;
-import java.util.jar.Attributes;
+import java.util.ArrayList;
 
 @SpireInitializer
-public class AncientMod implements EditCharactersSubscriber, EditStringsSubscriber, EditCardsSubscriber {
+public class AncientMod implements EditCharactersSubscriber, EditStringsSubscriber, EditCardsSubscriber, EditRelicsSubscriber {
     private static final Color ANCIENT_COLOR = com.megacrit.cardcrawl.helpers.CardHelper.getColor(50.0f,50.0f,50.0f);
 
     private static final String ATTACK_CARD = "512/bg_attack_ancient.png";
@@ -103,18 +107,58 @@ public class AncientMod implements EditCharactersSubscriber, EditStringsSubscrib
 
     @Override
     public void receiveEditCards(){
+        //Basic
         BaseMod.addCard(new Defend_Ancient());
         BaseMod.addCard(new Strike_Ancient());
+
+
+        //Common
         BaseMod.addCard(new TailWhip());
-        BaseMod.addCard(new Teeth());
-        BaseMod.addCard(new WingAttack());
         BaseMod.addCard(new Ignition());
+        BaseMod.addCard(new Crystallize());
+
+        //Uncommon
+        BaseMod.addCard(new Teeth());
+        BaseMod.addCard(new Exhale());
+        BaseMod.addCard(new Adaptation());
+
+        //Rare
+        BaseMod.addCard(new WingAttack());
+        BaseMod.addCard(new Slumber());
+        BaseMod.addCard(new Frenzy());
 
         UnlockTracker.unlockCard(Defend_Ancient.ID);
         UnlockTracker.unlockCard(Strike_Ancient.ID);
+
         UnlockTracker.unlockCard(TailWhip.ID);
-        UnlockTracker.unlockCard(Teeth.ID);
-        UnlockTracker.unlockCard(WingAttack.ID);
         UnlockTracker.unlockCard(Ignition.ID);
+        UnlockTracker.unlockCard(Crystallize.ID);
+
+        UnlockTracker.unlockCard(Teeth.ID);
+        UnlockTracker.unlockCard(Exhale.ID);
+        UnlockTracker.unlockCard(Adaptation.ID);
+
+        UnlockTracker.unlockCard(WingAttack.ID);
+        UnlockTracker.unlockCard(Slumber.ID);
+        UnlockTracker.unlockCard(Frenzy.ID);
+
+
+    }
+
+    @Override
+    public void receiveEditRelics(){
+        BaseMod.addRelicToCustomPool(new AshenScales(), AbstractCardEnum.ANCIENT);
+    }
+
+    public static AbstractPower getRandomAffinity(boolean useCardRng){
+        ArrayList<AbstractPower> powers = new ArrayList<>();
+        powers.add(new FireAffinityPower(AbstractDungeon.player, 1));
+        powers.add(new IceAffinityPower(AbstractDungeon.player, 1));
+        powers.add(new VenomAffinityPower(AbstractDungeon.player, 1));
+
+        if (useCardRng) {
+            return (AbstractPower)powers.get(AbstractDungeon.cardRandomRng.random(powers.size() - 1));
+        }
+        return (AbstractPower)powers.get(MathUtils.random(powers.size() - 1));
     }
 }

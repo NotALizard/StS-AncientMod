@@ -9,8 +9,7 @@
   },
   "Ancient:TailWhip": {
     "NAME": "Tail Whip",
-    "DESCRIPTION": "Deal !D! Damage !M! times.",
-    "UPGRADE_DESCRIPTION": "Deal !D! Damage !M! times."
+    "DESCRIPTION": "Deal !D! Damage !M! times."
   },
   "Ancient:Ignition": {
     "NAME": "Ignition",
@@ -24,26 +23,26 @@
     "NAME": "Teeth",
     "DESCRIPTION": "Deal !D! Damage !M! times. Can be upgraded any number of times."
   },
-  "theDefault:DefaultRareAttack": {
-    "NAME": "TOUCH",
-    "DESCRIPTION": "Deal !D! Damage."
+  "Ancient:Crystallize": {
+    "NAME": "Crystallize",
+    "DESCRIPTION": "Gain !M! Ice Affinity."
   },
-  "theDefault:DefaultRareSkill": {
-    "NAME": "For Each Loop x2",
-    "DESCRIPTION": "Apply !M! vulnerable to all enemies, 2 times.",
-    "UPGRADE_DESCRIPTION": "Apply !M! vulnerable to all enemies, 3 times."
+  "Ancient:Adaptation": {
+    "NAME": "Adaptation",
+    "DESCRIPTION": "At the start of your turn Gain !M! random Affinity."
   },
-  "theDefault:DefaultRarePower": {
-    "NAME": "In-Progress Form",
-    "DESCRIPTION": "At the start of your turn, play a TOUCH."
+  "Ancient:Exhale": {
+    "NAME": "Exhale",
+    "DESCRIPTION": "Apply Debuffs equal to your current Affinities.",
+    "UPGRADE_DESCRIPTION": "Apply Debuffs equal to your current Affinities to ALL enemies."
   },
-  "theDefault:DefaultAttackWithVariable": {
-    "NAME": "Special Strike",
-    "DESCRIPTION": "Deal !D! Damage [R] times. NL (Deal !theDefault:ENERGY_DAMAGE! damage total.)"
+  "Ancient:Frenzy": {
+    "NAME": "Frenzy",
+    "DESCRIPTION": "Deal !D! to a random enemy X times."
   },
-  "theDefault:DefaultSecondMagicNumberSkill": {
-    "NAME": "Cool 2 Number Card",
-    "DESCRIPTION": "Apply !M! vulnerable and !theDefault:SecondMagic! poison to an enemy."
+  "Ancient:Slumber": {
+    "NAME": "Slumber",
+    "DESCRIPTION": "Gain !B! Block. Next turn Gain !M! Fire, Ice, and Venom Affinity."
   },
   "theDefault:OrbSkill": {
     "NAME": "Get Orb",

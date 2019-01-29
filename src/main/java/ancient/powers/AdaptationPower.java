@@ -1,5 +1,6 @@
 package ancient.powers;
 
+import ancient.AncientMod;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -10,34 +11,28 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class SingePower extends AbstractPower {
-    public static final String POWER_ID = "Ancient:SingePower";
+public class AdaptationPower extends AbstractPower {
+    public static final String POWER_ID = "Ancient:AdaptationPower";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     private static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     public static final String IMG = "AncientImages/powers/placeholder_power.png";
 
-    public SingePower(AbstractCreature ownwer, int newAmount){
+    public AdaptationPower(AbstractCreature owner, int newAmount){
         this.name = NAME;
         this.ID = POWER_ID;
-        this.owner = ownwer;
+        this.owner = owner;
         this.amount = newAmount;
+        this.priority = 0;
         updateDescription();
-        type = PowerType.DEBUFF;
-        isTurnBased = true;
+        type = PowerType.BUFF;
+        isTurnBased = false;
         img = ImageMaster.loadImage(IMG);
     }
 
     @Override
     public void updateDescription() {
         description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
-    }
-
-    public float atDamageReceive(float damage, DamageInfo.DamageType type){
-        if(type == DamageInfo.DamageType.NORMAL){
-            return damage + this.amount;
-        }
-        return damage;
     }
 
     public void stackPower(int stackAmount)
@@ -47,6 +42,9 @@ public class SingePower extends AbstractPower {
 
     public void atStartOfTurn()
     {
-        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
+        flash();
+        for(int i = 0; i < amount; i++){
+            AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(owner, owner, AncientMod.getRandomAffinity(true), 1));
+        }
     }
 }

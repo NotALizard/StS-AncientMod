@@ -3,6 +3,7 @@ package ancient.characters;
 import ancient.cards.TailWhip;
 import ancient.patches.AbstractCardEnum;
 import ancient.patches.AncientEnum;
+import ancient.relics.AshenScales;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -32,7 +33,7 @@ public class AncientCharacter extends CustomPlayer {
 
     public static final int ENERGY_PER_TURN = 3;
     public static final String ANCIENT_SHOULDER_2 = "AncientImages/char/shoulder2.png";
-    public static final String ANCIENT_SHOULDER_1 = "AncientImages/char/shoulder1.png";
+    public static final String ANCIENT_SHOULDER_1 = "AncientImages/char/shoulder.png";
     public static final String ANCIENT_CORPSE = "AncientImages/char/corpse.png";
     public static final String ANCIENT_SKELETON_ATLAS = "AncientImages/char/skeleton.atlas";
     public static final String ANCIENT_SKELETON_JSON = "AncientImages/char/skeleton.json";
@@ -91,15 +92,15 @@ public class AncientCharacter extends CustomPlayer {
         retVal.add(Defend_Ancient.ID);
 
         retVal.add(TailWhip.ID);
-        retVal.add(WingAttack.ID);
+        retVal.add(Ignition.ID);
         //
         return retVal;
     }
 
     public ArrayList<String> getStartingRelics(){
         ArrayList<String> retVal = new ArrayList();
-        retVal.add(BurningBlood.ID);
-        UnlockTracker.markRelicAsSeen(BurningBlood.ID);
+        retVal.add(AshenScales.ID);
+        UnlockTracker.markRelicAsSeen(AshenScales.ID);
         return retVal;
     }
 

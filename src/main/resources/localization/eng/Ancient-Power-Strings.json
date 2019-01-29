@@ -1,10 +1,34 @@
 {
-"Ancient:EmberPower": {
-        "NAME": "Ember Affinity",
-        "DESCRIPTIONS": ["For ", " turn", " turns", " damage inflicts 1 Singe on enemies."]
+"Ancient:FireAffinityPower": {
+        "NAME": "Fire Affinity",
+        "DESCRIPTIONS": ["For ", " turn", " turns", " attack damage inflicts 1 Ember on enemies."]
 },
-"Ancient:SingePower": {
-        "NAME": "Singe",
-        "DESCRIPTIONS": ["Upon receiving damage, take ", " additional damage."]
+"Ancient:EmberPower": {
+        "NAME": "Ember",
+        "DESCRIPTIONS": ["Upon attack receiving damage, take ", " additional damage."]
+},
+"Ancient:IceAffinityPower": {
+        "NAME": "Ice Affinity",
+        "DESCRIPTIONS": ["For ", " turn", " turns", " damage inflicts 1 Sleet on enemies."]
+},
+"Ancient:SleetPower": {
+        "NAME": "Sleet",
+        "DESCRIPTIONS": ["Upon receiving damage, return ", " Block."]
+},
+"Ancient:VenomAffinityPower": {
+  "NAME": "Venom Affinity",
+  "DESCRIPTIONS": ["For ", " turn", " turns", " damage inflicts 1 Toxin on enemies."]
+},
+"Ancient:ToxinPower": {
+  "NAME": "Toxin",
+  "DESCRIPTIONS": ["Strength reduced by ", " temporarily."]
+},
+"Ancient:AdaptationPower": {
+  "NAME": "Adaptation",
+  "DESCRIPTIONS": ["At the start of your turn Gain a random Affinity ", " times."]
+},
+"Ancient:SlumberPower": {
+  "NAME": "Slumber",
+  "DESCRIPTIONS": ["Next turn gain ", " of each Affinity."]
 }
 }

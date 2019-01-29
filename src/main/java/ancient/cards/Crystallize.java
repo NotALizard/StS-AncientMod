@@ -1,6 +1,6 @@
 package ancient.cards;
 
-import ancient.powers.FireAffinityPower;
+import ancient.powers.IceAffinityPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -10,9 +10,9 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import ancient.patches.AbstractCardEnum;
 
-public class Ignition extends AbstractCard
+public class Crystallize extends AbstractCard
 {
-    public static final String ID = "Ancient:Ignition";
+    public static final String ID = "Ancient:Crystallize";
     public static final String NAME;
     public static final String DESCRIPTION;
     public static final String IMG_PATH = "cards/defendAncient.png";
@@ -26,7 +26,7 @@ public class Ignition extends AbstractCard
     private static final int MAGIC_NUMBER = 2;
     private static final int UPGRADE_BONUS = 1;
 
-    public Ignition()
+    public Crystallize()
     {
         super(ID, NAME, ancient.AncientMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.ANCIENT, RARITY, TARGET);
 
@@ -36,12 +36,12 @@ public class Ignition extends AbstractCard
 
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new FireAffinityPower(p, this.magicNumber), this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new IceAffinityPower(p, this.magicNumber), this.magicNumber));
     }
 
     public AbstractCard makeCopy()
     {
-        return new Ignition();
+        return new Crystallize();
     }
 
     public void upgrade()

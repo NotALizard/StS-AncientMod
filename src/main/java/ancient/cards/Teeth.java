@@ -17,13 +17,12 @@ public class Teeth extends AbstractAncientCard {
     public static final String ID = "Ancient:Teeth";
     public static final String NAME;
     public static final String DESCRIPTION;
-    public static String UPGRADED_DESCRIPTION;
     public static final String IMG_PATH = "cards/attackAncient.png";
     private static final CardStrings cardStrings;
 
-    private static final AbstractCard.CardType TYPE = AbstractCard.CardType.ATTACK;
-    private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.BASIC;
-    private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.ENEMY;
+    private static final CardType TYPE = CardType.ATTACK;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardTarget TARGET = CardTarget.ENEMY;
 
     private static final int COST = 2;
     private static final int ATTACK_DMG = 4;
@@ -59,7 +58,6 @@ public class Teeth extends AbstractAncientCard {
     public void upgrade() {
         upgradeName();
         upgradeMagicNumber(1);
-        this.rawDescription = UPGRADED_DESCRIPTION;
         initializeDescription();
     }
 
@@ -67,6 +65,5 @@ public class Teeth extends AbstractAncientCard {
         cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
         NAME = cardStrings.NAME;
         DESCRIPTION = cardStrings.DESCRIPTION;
-        UPGRADED_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     }
 }
